@@ -2,28 +2,38 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 
-# Page settings
 st.set_page_config(
-    page_title="AI Infrastructure Sustainable and Economic Challenges Dashboard",
+    page_title="AI Infrastructure Sustainability Dashboard",
     layout="wide"
 )
 
-# Title
-st.title("AI Infrastructure Sustainability Dashboard")
+st.title("AI Infrastructure Sustainable and Economic Challenges Dashboard")
 
 st.write("""
 This dashboard presents interactive visualisations for a cross-country panel analysis
 of AI-related infrastructure, economic productivity, and environmental sustainability.
 """)
 
-# Load data
 csv_path = Path(__file__).parent.parent / "data" / "data" / "master_panel.csv"
 
 df = pd.read_csv(csv_path)
 
-# Clean column names for display
 df.columns = df.columns.str.replace("_", " ")
 
-# Show dataset preview
 st.subheader("Dataset Preview")
 st.dataframe(df.head())
+
+st.subheader("Country Selector")
+
+countries = sorted(df["Country"].unique())
+
+selected_country = st.selectbox(
+    "Select a country",
+    countries
+)
+
+country_data = df[df["Country"] == selected_country]
+
+st.write(f"Showing data for **{selected_country}**")
+
+st.dataframe(country_data)
