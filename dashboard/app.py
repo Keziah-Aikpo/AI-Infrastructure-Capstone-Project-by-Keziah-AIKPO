@@ -90,3 +90,23 @@ fig_renewable = px.line(
 )
 
 st.plotly_chart(fig_renewable, use_container_width=True)
+
+st.subheader("Renewable Share vs Carbon Intensity")
+
+st.write("""
+This scatter plot visualises the relationship between renewable energy adoption and carbon intensity.
+The dissertation found a strong negative correlation of approximately -0.596, suggesting that countries
+with higher renewable energy shares generally tend to have lower carbon intensity.
+""")
+
+fig_scatter_carbon = px.scatter(
+    df,
+    x="Renewable Share",
+    y="Carbon Intensity",
+    color="Country",
+    hover_data=["Country", "Year"],
+    trendline="ols",
+    title="Renewable Share and Carbon Intensity"
+)
+
+st.plotly_chart(fig_scatter_carbon, use_container_width=True)
