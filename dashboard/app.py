@@ -1,11 +1,34 @@
 import streamlit as st
+import pandas as pd
 from pathlib import Path
 
-st.write("Current file:")
-st.write(__file__)
+st.set_page_config(
+    page_title="AI Infrastructure Sustainability Dashboard",
+    layout="wide"
+)
 
-st.write("Dashboard folder contents:")
-st.write(list(Path(__file__).parent.iterdir()))
+st.title("AI Infrastructure Sustainability Dashboard")
 
-st.write("Repository root contents:")
-st.write(list(Path(__file__).parent.parent.iterdir()))
+st.write("""
+This dashboard presents interactive visualisations for a cross-country panel analysis
+of AI-related infrastructure, economic productivity, and environmental sustainability.
+""")
+
+# File path
+csv_path = Path(__file__).parent.parent / "data" / "data" / "master_panel.csv"
+
+st.write("CSV Path:")
+st.write(csv_path)
+
+st.write("File Exists?")
+st.write(csv_path.exists())
+
+if csv_path.exists():
+    df = pd.read_csv(csv_path)
+
+    st.subheader("Dataset Preview")
+    st.dataframe(df.head())
+
+    st.success("Dataset loaded successfully!")
+else:
+    st.error("CSV file not found.")
