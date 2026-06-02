@@ -182,6 +182,16 @@ fig_productivity_scatter.update_layout(
 
 st.plotly_chart(fig_productivity_scatter, use_container_width=True)
 
+fig_electricity = px.line(
+    country_data,
+    x="Year",
+    y="Electricity Consumption",
+    markers=True,
+    title=f"Electricity Consumption in {selected_country} (TWh)"
+)
+
+st.plotly_chart(fig_electricity, use_container_width=True)
+
 st.header("Key Findings")
 
 col1, col2 = st.columns(2)
