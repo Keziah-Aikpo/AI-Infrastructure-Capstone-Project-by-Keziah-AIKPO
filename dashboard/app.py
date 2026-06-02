@@ -181,3 +181,45 @@ fig_productivity_scatter.update_layout(
 )
 
 st.plotly_chart(fig_productivity_scatter, use_container_width=True)
+
+st.header("Key Findings")
+
+col1, col2 = st.columns(2)
+
+with col1:
+    st.success("""
+    📉 Environmental Finding
+
+    Renewable Energy Share was the strongest determinant of Carbon Intensity.
+    Countries with higher renewable energy adoption tended to exhibit significantly
+    lower Carbon Intensity, highlighting the importance of cleaner energy systems.
+    """)
+
+with col2:
+    st.success("""
+    📈 Economic Finding
+
+    Renewable Energy Share was also the only variable significantly associated
+    with Labour Productivity. Countries with higher renewable energy adoption
+    tended to exhibit stronger productivity performance.
+    """)
+
+col3, col4 = st.columns(2)
+
+with col3:
+    st.info("""
+    ⚡ Energy-System Finding
+
+    Electricity Consumption and Carbon Taxation were not statistically significant
+    predictors of Carbon Intensity. Environmental outcomes appear to depend more
+    on how electricity is generated than on how much electricity is consumed.
+    """)
+
+with col4:
+    st.info("""
+    🤖 AI Infrastructure Implication
+
+    The findings suggest that AI infrastructure can support both economic
+    productivity and environmental sustainability when powered by cleaner
+    and more sustainable energy systems.
+    """)
