@@ -105,8 +105,11 @@ fig_scatter_carbon = px.scatter(
     y="Carbon Intensity",
     color="Country",
     hover_data=["Country", "Year"],
-    trendline="ols",
     title="Renewable Share and Carbon Intensity"
+)
+
+fig_scatter_carbon.update_layout(
+    height=700
 )
 
 st.plotly_chart(fig_scatter_carbon, use_container_width=True)
