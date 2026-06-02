@@ -95,7 +95,7 @@ st.subheader("Renewable Share vs Carbon Intensity")
 
 st.write("""
 This scatter plot visualises the relationship between renewable energy adoption and carbon intensity.
-The dissertation found a strong negative correlation of approximately -0.596, suggesting that countries
+The study found a strong negative correlation of approximately -0.596, suggesting that countries
 with higher renewable energy shares generally tend to have lower carbon intensity.
 """)
 
