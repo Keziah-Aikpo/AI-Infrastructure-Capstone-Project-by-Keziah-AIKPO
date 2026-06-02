@@ -16,6 +16,8 @@ of AI-related infrastructure, economic productivity, and environmental sustainab
 
 csv_path = Path(__file__).parent.parent / "data" / "data" / "master_panel.csv"
 
+df.columns = df.columns.str.replace("_", " ")
+
 df = pd.read_csv(csv_path)
 
 st.subheader("Dataset Preview")
