@@ -113,3 +113,25 @@ fig_scatter_carbon.update_layout(
 )
 
 st.plotly_chart(fig_scatter_carbon, use_container_width=True)
+
+st.subheader("Renewable Share vs Labour Productivity")
+
+st.write("""
+This scatter plot examines whether countries with higher renewable energy adoption
+also tend to exhibit stronger labour productivity outcomes.
+""")
+
+fig_productivity_scatter = px.scatter(
+    df,
+    x="Renewable Share",
+    y="Labour Productivity",
+    color="Country",
+    hover_data=["Country", "Year"],
+    title="Renewable Share and Labour Productivity"
+)
+
+fig_productivity_scatter.update_layout(
+    height=700
+)
+
+st.plotly_chart(fig_productivity_scatter, use_container_width=True)
