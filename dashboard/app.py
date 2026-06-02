@@ -13,7 +13,8 @@ This dashboard presents interactive visualisations for a cross-country panel ana
 of AI-related infrastructure, economic productivity, and environmental sustainability.
 """)
 
-df = pd.read_csv("data/master_panel.csv")
+from pathlib import Path
 
+df = pd.read_csv(Path(__file__).parent.parent / "data" / "master_panel.csv")
 st.subheader("Dataset Preview")
 st.dataframe(df.head())
