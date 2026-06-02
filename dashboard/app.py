@@ -4,7 +4,7 @@ from pathlib import Path
 
 # Page settings
 st.set_page_config(
-    page_title="AI Infrastructure Sustainable and Ecnomic Challenges Dashboard",
+    page_title="AI Infrastructure Sustainable and Economic Challenges Dashboard",
     layout="wide"
 )
 
