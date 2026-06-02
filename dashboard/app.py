@@ -23,6 +23,31 @@ col1.metric("Countries", 32)
 col2.metric("Years", "2010-2021")
 col3.metric("Observations", 369)
 
+st.subheader("Country Rankings")
+
+ranking_metric = st.selectbox(
+    "Select a ranking metric",
+    [
+        "Labour Productivity",
+        "Carbon Intensity",
+        "Renewable Share"
+    ]
+)
+
+country_rankings = (
+    df.groupby("Country")[ranking_metric]
+      .mean()
+      .reset_index()
+      .sort_values(by=ranking_metric, ascending=False)
+)
+
+country_rankings.index = range(1, len(country_rankings) + 1)
+
+st.dataframe(
+    country_rankings,
+    use_container_width=True
+)
+
 # Load data
 csv_path = Path(__file__).parent.parent / "data" / "data" / "master_panel.csv"
 df = pd.read_csv(csv_path)
