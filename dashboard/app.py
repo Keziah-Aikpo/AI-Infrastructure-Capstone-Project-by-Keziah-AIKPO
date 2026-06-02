@@ -38,7 +38,7 @@ ranking_metric = st.selectbox(
     "Labour Productivity",
     "Carbon Intensity",
     "Renewable Share",
-    "Electricity Consumption(TWh)",
+    "Electricity Consumption",
     "Carbon Tax"
 ]
 )
@@ -82,12 +82,12 @@ col1, col2, col3 = st.columns(3)
 col1, col2, col3, col4, col5 = st.columns(5)
 
 col1.metric(
-    "Productivity",
+    "Productivity (Output Per Worker)",
     round(country_data["Labour Productivity"].mean(), 2)
 )
 
 col2.metric(
-    "Carbon Intensity",
+    "Carbon Intensity (gCO₂/kWh)",
     round(country_data["Carbon Intensity"].mean(), 2)
 )
 
@@ -102,7 +102,7 @@ col4.metric(
 )
 
 col5.metric(
-    "Carbon Tax",
+    "Carbon Tax (€/tCO₂)",
     round(country_data["Carbon Tax"].mean(), 2)
 )
 
