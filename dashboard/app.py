@@ -38,7 +38,7 @@ ranking_metric = st.selectbox(
     "Labour Productivity",
     "Carbon Intensity",
     "Renewable Share",
-    "Electricity Consumption",
+    "Electricity Consumption(TWh)",
     "Carbon Tax"
 ]
 )
@@ -97,7 +97,7 @@ col3.metric(
 )
 
 col4.metric(
-    "Electricity Consumption",
+    "Electricity Consumption (TWh)",
     round(country_data["Electricity Consumption"].mean(), 2)
 )
 
