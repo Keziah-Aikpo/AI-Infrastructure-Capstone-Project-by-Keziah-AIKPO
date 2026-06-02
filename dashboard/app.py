@@ -23,6 +23,13 @@ col1.metric("Countries", 32)
 col2.metric("Years", "2010-2021")
 col3.metric("Observations", 369)
 
+# Load data
+csv_path = Path(__file__).parent.parent / "data" / "data" / "master_panel.csv"
+df = pd.read_csv(csv_path)
+
+# Clean column names
+df.columns = df.columns.str.replace("_", " ")
+
 st.subheader("Country Rankings")
 
 ranking_metric = st.selectbox(
@@ -48,12 +55,6 @@ st.dataframe(
     use_container_width=True
 )
 
-# Load data
-csv_path = Path(__file__).parent.parent / "data" / "data" / "master_panel.csv"
-df = pd.read_csv(csv_path)
-
-# Clean column names
-df.columns = df.columns.str.replace("_", " ")
 
 # Dataset preview
 st.subheader("Dataset Preview")
