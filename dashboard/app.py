@@ -15,6 +15,15 @@ This dashboard presents interactive visualisations for a cross-country panel ana
 of AI-related infrastructure, economic productivity, and environmental sustainability.
 """)
 
+st.subheader("Dataset Overview")
+
+col1, col2, col3, col4 = st.columns(4)
+
+col1.metric("Countries", 32)
+col2.metric("Years", "2010-2021")
+col3.metric("Observations", 369)
+col4.metric("Renewable ↔ Carbon Corr.", "-0.596")
+
 # Load data
 csv_path = Path(__file__).parent.parent / "data" / "data" / "master_panel.csv"
 df = pd.read_csv(csv_path)
