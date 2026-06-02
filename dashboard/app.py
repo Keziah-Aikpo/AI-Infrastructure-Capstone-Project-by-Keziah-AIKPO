@@ -195,7 +195,7 @@ with col1:
     lower Carbon Intensity, highlighting the importance of cleaner energy systems.
     """)
 
-with col2:
+with col6:
     st.success("""
     📈 Economic Finding
 
@@ -206,7 +206,7 @@ with col2:
 
 col3, col4 = st.columns(2)
 
-with col3:
+with col8:
     st.info("""
     ⚡ Energy-System Finding
 
