@@ -34,11 +34,13 @@ st.subheader("Country Rankings")
 
 ranking_metric = st.selectbox(
     "Select a ranking metric",
-    [
-        "Labour Productivity",
-        "Carbon Intensity",
-        "Renewable Share"
-    ]
+  [
+    "Labour Productivity",
+    "Carbon Intensity",
+    "Renewable Share",
+    "Electricity Consumption",
+    "Carbon Tax"
+]
 )
 
 country_rankings = (
@@ -77,19 +79,31 @@ st.subheader(f"Key Statistics: {selected_country}")
 
 col1, col2, col3 = st.columns(3)
 
+col1, col2, col3, col4, col5 = st.columns(5)
+
 col1.metric(
-    "Average Productivity",
+    "Productivity",
     round(country_data["Labour Productivity"].mean(), 2)
 )
 
 col2.metric(
-    "Average Carbon Intensity",
+    "Carbon Intensity",
     round(country_data["Carbon Intensity"].mean(), 2)
 )
 
 col3.metric(
-    "Average Renewable Share (%)",
+    "Renewable Share (%)",
     round(country_data["Renewable Share"].mean(), 2)
+)
+
+col4.metric(
+    "Electricity Consumption",
+    round(country_data["Electricity Consumption"].mean(), 2)
+)
+
+col5.metric(
+    "Carbon Tax",
+    round(country_data["Carbon Tax"].mean(), 2)
 )
 
 # Country trends
