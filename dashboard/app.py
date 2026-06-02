@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("AI Infrastructure Sustainable and Economic Dashboard")
+st.title("Sustainable and Economic AI Infrastructure Dashboard")
 
 st.write("""
 This dashboard presents interactive visualisations for a cross-country panel analysis
