@@ -11,8 +11,7 @@ st.set_page_config(
 st.title("Sustainable and Economic AI Infrastructure Dashboard")
 
 st.write("""
-This dashboard presents interactive visualisations for a cross-country panel analysis
-of AI-related infrastructure, economic productivity, and environmental sustainability.
+This dashboard presents the findings of a cross-country panel analysis investigating whether the environmental costs associated with AI infrastructure can be reconciled with economic productivity gains. The study adopts an infrastructure oriented perspective, focusing on the energy systems that support artificial intelligence rather than on AI adoption itself. Using data from 32 countries between 2010 and 2021, the dashboard explores the relationships between Labour Productivity, Carbon Intensity, Renewable Energy Share, Electricity Consumption, and Carbon Taxation to examine the conditions under which technological development and environmental sustainability could coexist.
 """)
 
 st.subheader("Dataset Overview")
