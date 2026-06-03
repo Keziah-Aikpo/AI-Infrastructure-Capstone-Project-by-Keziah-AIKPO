@@ -289,16 +289,19 @@ st.write("""
 This scatter plot shows how Renewable Energy Share is related to Labour Productivity across the countries included in the study. Each point represents a country in a specific year between 2010 and 2021, while colours indicate the continent to which each country belongs. The general pattern suggests that countries with higher renewable energy adoption often tend to have higher productivity levels. Although the relationship is not perfect, the results indicate that cleaner energy systems can support economic performance while also contributing to environmental sustainability.
 """)
 
-selected_continents = st.multiselect(
+selected_continents_productivity = st.multiselect(
     "Select Continents",
     options=sorted(df["Continent"].dropna().unique()),
-    default=sorted(df["Continent"].dropna().unique())
+    default=sorted(df["Continent"].dropna().unique()),
+    key="productivity_continent_selector"
 )
 
-filtered_df = df[df["Continent"].isin(selected_continents)]
+filtered_df_productivity = df[
+    df["Continent"].isin(selected_continents_productivity)
+]
 
 fig_productivity_scatter = px.scatter(
-    filtered_df,
+    filtered_df_productivity,
     x="Renewable Share",
     y="Labour Productivity",
     color="Continent",
@@ -310,7 +313,10 @@ fig_productivity_scatter.update_layout(
     height=700
 )
 
-st.plotly_chart(fig_productivity_scatter, use_container_width=True)
+st.plotly_chart(
+    fig_productivity_scatter,
+    use_container_width=True
+)
 
 st.header("Key Findings")
 
