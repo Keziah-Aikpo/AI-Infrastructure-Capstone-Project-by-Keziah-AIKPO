@@ -59,8 +59,11 @@ st.dataframe(
 
 
 # Dataset preview
-st.subheader("Dataset Preview")
-st.dataframe(df.head())
+st.subheader("Dataset Preview (France)")
+
+france_data = df[df["Country"] == "France"]
+
+st.dataframe(france_data.head())
 
 # Country selector
 st.subheader("Country Selector")
