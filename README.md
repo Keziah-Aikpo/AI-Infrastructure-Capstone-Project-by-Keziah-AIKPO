@@ -27,7 +27,7 @@ The master_panel.csv dataset is the final dataset used for descriptive analysis,
 
 ### figures/
 
-Stores figures, diagrams, visualisations, and conceptual frameworks used throughout the project and dissertation.
+Stores figures, diagrams, visualisations, and conceptual frameworks used throughout the project.
 
 Examples include: Correlation heatmaps, Conceptual frameworks, Sustainability visualisations and AI infrastructure diagrams
 
