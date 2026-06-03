@@ -275,8 +275,7 @@ df["Continent"] = df["Country"].map(continent_map)
 st.subheader("Renewable Share vs Labour Productivity")
 
 st.write("""
-This scatter plot examines whether countries with higher renewable energy adoption
-also tend to exhibit stronger labour productivity outcomes.
+This scatter plot shows how Renewable Energy Share is related to Labour Productivity across the countries included in the study. Each point represents a country in a specific year between 2010 and 2021, while colours indicate the continent to which each country belongs. The general pattern suggests that countries with higher renewable energy adoption often tend to have higher productivity levels. Although the relationship is not perfect, the results indicate that cleaner energy systems can support economic performance while also contributing to environmental sustainability.
 """)
 
 selected_continents = st.multiselect(
