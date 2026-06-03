@@ -158,6 +158,56 @@ fig_electricity = px.line(
 
 st.plotly_chart(fig_electricity, use_container_width=True)
 
+# Renewable Share VS Carbon Intensity
+
+# Create continent groups
+
+continent_map = {
+    # Europe
+    "Austria": "Europe",
+    "Belgium": "Europe",
+    "Denmark": "Europe",
+    "Estonia": "Europe",
+    "Finland": "Europe",
+    "France": "Europe",
+    "Germany": "Europe",
+    "Greece": "Europe",
+    "Hungary": "Europe",
+    "Iceland": "Europe",
+    "Italy": "Europe",
+    "Latvia": "Europe",
+    "Lithuania": "Europe",
+    "Luxembourg": "Europe",
+    "Netherlands": "Europe",
+    "Norway": "Europe",
+    "Poland": "Europe",
+    "Portugal": "Europe",
+    "Slovenia": "Europe",
+    "Spain": "Europe",
+    "Sweden": "Europe",
+    "Switzerland": "Europe",
+    "United Kingdom": "Europe",
+
+    # North America
+    "Canada": "North America",
+    "Costa Rica": "North America",
+    "Mexico": "North America",
+    "United States": "North America",
+
+    # South America
+    "Chile": "South America",
+    "Colombia": "South America",
+
+    # Asia
+    "Japan": "Asia",
+
+    # Oceania
+    "Australia": "Oceania",
+    "New Zealand": "Oceania"
+}
+
+df["Continent"] = df["Country"].map(continent_map)
+
 st.subheader("Renewable Share vs Carbon Intensity")
 
 st.write("""
@@ -168,7 +218,7 @@ fig_scatter_carbon = px.scatter(
     df,
     x="Renewable Share",
     y="Carbon Intensity",
-    color="Country",
+    color="Continent",
     hover_data=["Country", "Year"],
     title="Renewable Share and Carbon Intensity"
 )
@@ -178,6 +228,8 @@ fig_scatter_carbon.update_layout(
 )
 
 st.plotly_chart(fig_scatter_carbon, use_container_width=True)
+
+# Renewable Share VS Labour Productivity
 
 st.subheader("Renewable Share vs Labour Productivity")
 
