@@ -211,7 +211,7 @@ df["Continent"] = df["Country"].map(continent_map)
 st.subheader("Renewable Share vs Carbon Intensity")
 
 st.write("""
-This scatter plot illustrates the relationship between Renewable Energy Share and Carbon Intensity across the countries included in the study. Each point represents a country-year observation between 2010 and 2021. The downward pattern of the data indicates a strong negative relationship, meaning that countries with higher shares of renewable energy generally tend to exhibit lower carbon intensity. This finding supports the dissertation's conclusion that cleaner energy systems are associated with improved environmental sustainability outcomes. """)
+This scatter plot illustrates the relationship between Renewable Energy Share and Carbon Intensity across the countries included in the study. Each point represents a country-year observation between 2010 and 2021. The downward pattern of the data indicates a strong negative relationship, meaning that countries with higher shares of renewable energy generally tend to exhibit lower carbon intensity. This finding supports the study's conclusion that cleaner energy systems are associated with improved environmental sustainability outcomes. """)
 
 fig_scatter_carbon = px.scatter(
     df,
@@ -230,6 +230,48 @@ st.plotly_chart(fig_scatter_carbon, use_container_width=True)
 
 # Renewable Share VS Labour Productivity
 
+# CONTINENT MAPPING
+continent_map = {
+    "Australia": "Oceania",
+    "New Zealand": "Oceania",
+
+    "Canada": "North America",
+    "United States": "North America",
+    "Mexico": "North America",
+    "Costa Rica": "North America",
+
+    "Chile": "South America",
+    "Colombia": "South America",
+
+    "Austria": "Europe",
+    "Belgium": "Europe",
+    "Denmark": "Europe",
+    "Estonia": "Europe",
+    "Finland": "Europe",
+    "France": "Europe",
+    "Germany": "Europe",
+    "Greece": "Europe",
+    "Hungary": "Europe",
+    "Iceland": "Europe",
+    "Italy": "Europe",
+    "Latvia": "Europe",
+    "Lithuania": "Europe",
+    "Luxembourg": "Europe",
+    "Netherlands": "Europe",
+    "Norway": "Europe",
+    "Poland": "Europe",
+    "Portugal": "Europe",
+    "Slovenia": "Europe",
+    "Spain": "Europe",
+    "Sweden": "Europe",
+    "Switzerland": "Europe",
+    "United Kingdom": "Europe",
+
+    "Japan": "Asia"
+}
+
+df["Continent"] = df["Country"].map(continent_map)
+
 st.subheader("Renewable Share vs Labour Productivity")
 
 st.write("""
@@ -237,11 +279,19 @@ This scatter plot examines whether countries with higher renewable energy adopti
 also tend to exhibit stronger labour productivity outcomes.
 """)
 
+selected_continents = st.multiselect(
+    "Select Continents",
+    options=sorted(df["Continent"].dropna().unique()),
+    default=sorted(df["Continent"].dropna().unique())
+)
+
+filtered_df = df[df["Continent"].isin(selected_continents)]
+
 fig_productivity_scatter = px.scatter(
-    df,
+    filtered_df,
     x="Renewable Share",
     y="Labour Productivity",
-    color="Country",
+    color="Continent",
     hover_data=["Country", "Year"],
     title="Renewable Share and Labour Productivity"
 )
@@ -251,7 +301,6 @@ fig_productivity_scatter.update_layout(
 )
 
 st.plotly_chart(fig_productivity_scatter, use_container_width=True)
-
 
 st.header("Key Findings")
 
