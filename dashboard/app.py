@@ -211,10 +211,21 @@ df["Continent"] = df["Country"].map(continent_map)
 st.subheader("Renewable Share vs Carbon Intensity")
 
 st.write("""
-This scatter plot illustrates the relationship between Renewable Energy Share and Carbon Intensity across the countries included in the study. Each point represents a country-year observation between 2010 and 2021. The downward pattern of the data indicates a strong negative relationship, meaning that countries with higher shares of renewable energy generally tend to exhibit lower carbon intensity. This finding supports the study's conclusion that cleaner energy systems are associated with improved environmental sustainability outcomes. """)
+This scatter plot illustrates the relationship between Renewable Energy Share and Carbon Intensity across the countries included in the study. Each point represents a country-year observation between 2010 and 2021, while colours indicate the continent to which each country belongs. The downward pattern of the data indicates a strong negative relationship, meaning that countries with higher shares of renewable energy generally tend to exhibit lower carbon intensity. This finding supports the study's conclusion that cleaner energy systems are associated with improved environmental sustainability outcomes.
+""")
+
+# Continent selector
+
+selected_continents = st.multiselect(
+    "Select Continents",
+    options=sorted(df["Continent"].dropna().unique()),
+    default=sorted(df["Continent"].dropna().unique())
+)
+
+filtered_df = df[df["Continent"].isin(selected_continents)]
 
 fig_scatter_carbon = px.scatter(
-    df,
+    filtered_df,
     x="Renewable Share",
     y="Carbon Intensity",
     color="Continent",
