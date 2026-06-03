@@ -35,10 +35,10 @@ Examples include: Correlation heatmaps, Conceptual frameworks, Sustainability vi
 
 Contains the complete analytical workflow used throughout the project.
 
-* 01_data_cleaning.ipynb - Data cleaning and preprocessing of individual datasets.
-* 02_merge_datasets.ipynb – Construction of the final cross-country panel dataset.
-* 03_analysis_and_regressions.ipynb – Descriptive statistics, correlation analysis, and regression modelling.
-* 99_final_submission.ipynb – Final consolidated notebook containing the complete workflow, results, visualisations, and interpretations.
+* 01DataCleaning.ipynb - Data cleaning and preprocessing of individual datasets.
+* 02MergeDatasets.ipynb – Construction of the final cross-country panel dataset.
+* 03AnalysisRegression.ipynb – Descriptive statistics, correlation analysis, and regression modelling.
+* 00FinalSubmission.ipynb – Final consolidated notebook containing the complete workflow, results, visualisations, and interpretations.
 
 ### results/
 
