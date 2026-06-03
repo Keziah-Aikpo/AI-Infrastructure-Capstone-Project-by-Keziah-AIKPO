@@ -59,11 +59,17 @@ st.dataframe(
 
 
 # Dataset preview
-st.subheader("Dataset Preview (France)")
+st.subheader("Dataset Preview")
 
-france_data = df[df["Country"] == "France"]
+preview_country = st.selectbox(
+    "Select a country to preview",
+    sorted(df["Country"].unique()),
+    key="preview_country"
+)
 
-st.dataframe(france_data)
+preview_data = df[df["Country"] == preview_country]
+
+st.dataframe(preview_data)
 
 # Country selector
 st.subheader("Country Selector")
